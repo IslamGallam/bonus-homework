@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Discover </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Discover </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Country Name </th>
+                            <th> Disease Code </th>
+                            <th> First Encountered Date </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${discover.size() == 0}">
+                            <td colspan="2"> No Discoveries Available </td>
+                        </tr>
+                        <tr th:each="item : ${discover}">
+                            <td><span th:text="${item.getDiscoverId().getCname()}"> Country Name </span></td>
+                            <td><span th:text="${item.getDiscoverId().getDisease_code()}"> Disease Code </span></td>
+                            <td><span th:text="${item.getFirst_enc_date()}"> First Encountered Date </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-success" href="#" th:href="@{/add/discover}"> Add Discover </a>
+                    <a class="btn btn-primary" href="#" th:href="@{/edit/discover}" th:classappend="${discover.size() == 0} ? 'disabled' : ''"> Edit Discover </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

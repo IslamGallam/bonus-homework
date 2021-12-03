@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PublicServant </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> PublicServant </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Email </th>
+                            <th> Department </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${publicservant.size() == 0}">
+                            <td colspan="2"> No PublicServant Available </td>
+                        </tr>
+                        <tr th:each="item : ${publicservant}">
+                            <td><span th:text="${item.getEmail()}"> Email </span></td>
+                            <td><span th:text="${item.getDepartment()}"> Department </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <a class="btn btn-success" href="#" th:href="@{/add/publicservant}"> Add PublicServant </a>
+                    <a class="btn btn-primary" href="#" th:href="@{/edit/publicservant}" th:classappend="${publicservant.size() == 0} ? 'disabled' : ''"> Edit PublicServant </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

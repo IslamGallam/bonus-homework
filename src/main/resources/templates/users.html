@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Users </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Email </th>
+                            <th> Name </th>
+                            <th> Surname </th>
+                            <th> Phone </th>
+                            <th> Salary </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${users.size() == 0}">
+                            <td colspan="2"> No Users Available </td>
+                        </tr>
+                        <tr th:each="item : ${users}">
+                            <td><span th:text="${item.getEmail()}"> Email </span></td>
+                            <td><span th:text="${item.getName()}"> Name </span></td>
+                            <td><span th:text="${item.getSurname()}"> Surname </span></td>
+                            <td><span th:text="${item.getPhone()}"> Phone </span></td>
+                            <td><span th:text="${item.getSalary()}"> Salary </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <a class="btn btn-success" href="#" th:href="@{/add/users}"> Add Users </a>
+                    <a class="btn btn-primary" href="#" th:href="@{/edit/users}" th:classappend="${users.size() == 0} ? 'disabled' : ''"> Edit Users </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

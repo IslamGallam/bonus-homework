@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Disease</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Add Disease </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-info" href="#" th:href="@{/disease}"> Back to All Diseases</a>
+            <form action="#" class="form-horizontal"
+                  th:action="@{/disease/save/0}"
+                  th:object="${form}"
+                  method="post">
+                <fieldset>
+					<span class="pull-right">
+						    <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+						    <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+					</span>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Disease Code</th>
+                            <th>Pathogen</th>
+                            <th>Description</th>
+                            <th>Id</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="item, itemStat : *{diseases}">
+                            <td><input th:placeholder="DiseaseCode + ' ' + ${itemStat.count}" th:field="*{diseases[__${itemStat.index}__].disease_code}" required/></td>
+                            <td><input th:placeholder="Pathogen + ' ' + ${itemStat.count}" th:field="*{diseases[__${itemStat.index}__].pathogen}" required/></td>
+                            <td><input th:placeholder="Description + ' ' + ${itemStat.count}" th:field="*{diseases[__${itemStat.index}__].description}" required/></td>
+                            <td><input th:placeholder="Id + ' ' + ${itemStat.count}" th:field="*{diseases[__${itemStat.index}__].diseaseType.id}" required/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

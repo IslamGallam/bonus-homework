@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Diseases </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Countries </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Disease Code </th>
+                            <th> Pathogen </th>
+                            <th> Description </th>
+                            <th> Id </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${diseases.size() == 0}">
+                            <td colspan="2"> No Diseases Available </td>
+                        </tr>
+                        <tr th:each="item : ${diseases}">
+                            <td><span th:text="${item.getDisease_code()}"> Disease Code </span></td>
+                            <td><span th:text="${item.getPathogen()}"> Pathogen </span></td>
+                            <td><span th:text="${item.getDescription()}"> Description </span></td>
+                            <td><span th:text="${item.getDiseaseType().getId()}"> Id </span></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-success" href="#" th:href="@{/add/disease}"> Add Disease </a>
+                    <a class="btn btn-primary" href="#" th:href="@{/edit/disease}" th:classappend="${diseases.size() == 0} ? 'disabled' : ''"> Edit Diseases </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
