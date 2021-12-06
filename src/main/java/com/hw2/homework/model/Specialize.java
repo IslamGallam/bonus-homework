@@ -54,7 +54,7 @@ public class Specialize {
     private DiseaseType diseaseType;
 
     @MapsId("email")
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "email")
     private Doctor doctor;
 }
