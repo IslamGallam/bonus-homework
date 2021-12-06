@@ -42,11 +42,15 @@ public class Doctor {
         this.user = user;
     }
 
+    public Doctor(String email, String degree) {
+        this.email = email;
+        this.degree = degree;
+    }
+
     public Doctor() {
     }
 
-    @MapsId("email")
     @OneToOne
-    @JoinColumn(name = "email")
+    @PrimaryKeyJoinColumn
     private Users user;
 }

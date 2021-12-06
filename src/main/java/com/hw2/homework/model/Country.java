@@ -43,4 +43,7 @@ public class Country {
 
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
     private Set<Users> users = new HashSet<>();
+
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    private Set<Record> records = new HashSet<>();
 }

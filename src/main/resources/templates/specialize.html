@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Specialize </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Specialize </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Disease Type Id </th>
+                            <th> Email </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${specialize.size() == 0}">
+                            <td colspan="2"> No Specializes Available </td>
+                        </tr>
+                        <tr th:each="item : ${specialize}">
+                            <td><span th:text="${item.getId()}"> Id </span></td>
+                            <td><span th:text="${item.getEmail()}"> Email </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <a class="btn btn-success" href="#" th:href="@{/add/specialize}"> Add Specialize </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

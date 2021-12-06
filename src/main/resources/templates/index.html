@@ -2,9 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + 'World' +'!'" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Homework 2 Tables </h1>
+        </div>
+    </div>
+    <a class="btn btn-success" href="#" th:href="@{/diseasetype}"> Disease Type </a>
+    <a class="btn btn-success" href="#" th:href="@{/country}"> Country </a>
+    <a class="btn btn-success" href="#" th:href="@{/disease}"> Disease </a>
+    <a class="btn btn-success" href="#" th:href="@{/discover}"> Discover</a>
+    <a class="btn btn-success" href="#" th:href="@{/publicservant}"> PublicServant</a>
+    <a class="btn btn-success" href="#" th:href="@{/doctor}"> Doctor</a>
+    <a class="btn btn-success" href="#" th:href="@{/specialize}"> Specialize</a>
+    <a class="btn btn-success" href="#" th:href="@{/record}"> Record</a>
 </body>
 </html>

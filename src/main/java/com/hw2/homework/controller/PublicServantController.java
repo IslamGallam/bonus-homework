@@ -17,9 +17,6 @@ public class PublicServantController {
     @Autowired
     PublicServantRepository publicServantRepository;
 
-    @Autowired
-    UsersRepository usersRepository;
-
     @GetMapping("publicservant")
     public String getPublicServant(Model model) {
         model.addAttribute("publicservant",

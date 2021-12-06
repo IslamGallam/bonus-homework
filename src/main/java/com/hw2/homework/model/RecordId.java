@@ -1,8 +1,10 @@
 package com.hw2.homework.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 
+@Embeddable
 public class RecordId implements Serializable {
     @Column(length = 60)
     private String email;

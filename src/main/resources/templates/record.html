@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Record </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Record </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> Email </th>
+                            <th> Country Name </th>
+                            <th> Disease Code </th>
+                            <th> Total Deaths </th>
+                            <th> Total Patients </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${record.size() == 0}">
+                            <td colspan="2"> No Records Available </td>
+                        </tr>
+                        <tr th:each="item : ${record}">
+                            <td><span th:text="${item.getRecordId().getEmail()}"> Email </span></td>
+                            <td><span th:text="${item.getRecordId().getCname()}"> Country name </span></td>
+                            <td><span th:text="${item.getRecordId().getDisease_code()}"> Disease Code </span></td>
+                            <td><span th:text="${item.getTotal_deaths()}"> Total deaths </span></td>
+                            <td><span th:text="${item.getTotal_patients()}"> Total patients </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <a class="btn btn-success" href="#" th:href="@{/add/record}"> Add Record </a>
+                    <a class="btn btn-primary" href="#" th:href="@{/edit/record}" th:classappend="${record.size() == 0} ? 'disabled' : ''"> Edit Record </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
