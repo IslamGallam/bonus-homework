@@ -31,7 +31,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="book, itemStat : ${form.diseaseTypes}">
-                            <td><span th:text="${book.getId()}"> Id </span></td>
+                            <td><input th:placeholder="Id + ' ' + ${itemStat.count}" th:name="|diseaseTypes[${itemStat.index}].id|" th:value="${book.getId()}"readonly/></td>
                             <td><input th:placeholder="Description + ' ' + ${itemStat.count}" th:name="|diseaseTypes[${itemStat.index}].description|" th:value="${book.getDescription()}"
                                        /></td>
                         </tr>

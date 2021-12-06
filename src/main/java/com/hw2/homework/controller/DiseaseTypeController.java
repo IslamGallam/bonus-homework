@@ -67,6 +67,7 @@ public class DiseaseTypeController {
     public String saveDiseaseType1(@ModelAttribute DiseaseTypeForm form, Model model) {
         List<DiseaseType> added = form.getDiseaseTypes();
         for (int i = 0; i < added.size(); i++) {
+            System.out.println(added.get(i).getId());
             if (added.get(i).getDescription().length() > 0) {
                 DiseaseType ds = diseaseTypeRepository.getById(added.get(i).getId());
                 ds.setDescription(added.get(i).getDescription());
